@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "clothes-shop-bottg"
+version = "0.1.0"
+description = ""
+authors = ["ixlos23 <izzatmatkarimov090@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aiogram = "^3.13.1"
+sqlalchemy = "^2.0.36"
+psycopg2-binary = "^2.9.10"
+python-dotenv = "^1.0.1"
+babel = "^2.16.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
