@@ -2,18 +2,14 @@ import json
 
 from aiogram import Router, F
 from aiogram import types
-from aiogram.fsm import state
-
 from aiogram.fsm.context import FSMContext
 from aiogram.types import InputFile, LabeledPrice
 from aiogram.types import InputMediaPhoto
 from aiogram.types import Message, CallbackQuery
 
-from bot import states
-from utils.conf import Config as conf
 from bot.buttons.inline import pagination_btn, buy_now_button, shoes_button
 from utils import conf
-from utils.conf import Config
+from utils.conf import Config as conf
 
 product_router = Router()
 
@@ -151,10 +147,6 @@ async def shoe_detail_callback(query: types.CallbackQuery):
     await query.answer()
 
 
-
-# Router yaratish
-
-
 @product_router.callback_query(F.data.startswith("buy_"))
 async def shoe_detail_callback(query: CallbackQuery, state: FSMContext):
     data = await state.get_data()  # Bu yerda state ma'lumotlari olinadi
@@ -169,10 +161,11 @@ async def shoe_detail_callback(query: CallbackQuery, state: FSMContext):
         title='Product',
         description=f"Jami {card_count} mahsulot buyurtma qilindi",
         payload='1',
-        provider_token=conf.Bot.PAYMENT_CLICK_TOKEN,
+        provider_token=conf.bot.PAYMENT_CLICK_TOKEN,
         currency="UZS",
         prices=prices
     )
+
 
 
 """
